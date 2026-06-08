@@ -1,0 +1,32 @@
+# Arquivos auxiliares do LaTeX
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.out
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.alg
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.nav
+*.snm
+*.vrb
+
+# Residuo de extracao de texto do PDF (nao faz parte do projeto)
+pdf_full.txt
+
+# Sistema operacional
+Thumbs.db
+.DS_Store

@@ -1,0 +1,291 @@
+%%%% CAPÍTULO 3 - ESPECIFICAÇÃO DO SISTEMA
+%%
+%% Conteúdo extraído VERBATIM de TCC_PARKON_V3.pdf (páginas 12 a 19).
+%% Fragmento LaTeX: incluído via \include em tese.tex (sem preâmbulo).
+%% Codificação UTF-8.
+%%
+%% Observações de migração:
+%% - Não há citações bibliográficas ([n]) no corpo deste capítulo.
+%% - Não há citações diretas com mais de três linhas (nenhum bloco \quoting é necessário).
+%% - Não há pseudocódigo/algoritmos neste capítulo (nenhum ambiente \algorithm é necessário).
+%% - Referência cruzada "Figura 1" convertida para \autoref{fig:caso-uso-usuario}.
+%% - Figuras (Figura 1, 2 e 3): inseridos AMBIENTES PLACEHOLDER com \label para que
+%%   os \autoref resolvam; as imagens reais serão extraídas/inseridas na tarefa 5.1.
+%% - Tabelas (Tabela 1 a 8): criadas com \label (tab:); estrutura/refino na tarefa 5.2.
+%% - Acrônimos: "API" provavelmente já introduzido no Capítulo 2 (seção 2.3 - Tecnologias
+%%   Necessárias). Aqui em RNF07 usa-se \acrshortpl{api} (ocorrência subsequente, plural).
+%%   A reconciliação de primeiro uso entre capítulos é feita na tarefa 10.1.
+%% - Os códigos de requisito "RF01..RF06" e "RNF01..RNF07" são mantidos como
+%%   identificadores literais para preservar o conteúdo VERBATIM (Req. 1.1). Os acrônimos
+%%   rf/rnf estão definidos em acronimos.tex; sua inclusão na "Lista de Abreviaturas e
+%%   Siglas" será tratada nas tarefas 8.1/10.1 (evitar \acrfull aqui alteraria o texto
+%%   visível dos códigos).
+
+\chapter{Especificação do Sistema}
+\label{cap:proposta}
+
+Considerando que o Parkon é um aplicativo voltado para facilitar a reserva de vagas de estacionamento, sua utilização deve ser intuitiva e acessível para diferentes perfis de usuários. Os requisitos funcionais e não funcionais são fundamentais no desenvolvimento do sistema, pois definem o escopo e a qualidade do produto. Os requisitos funcionais estabelecem as principais funcionalidades que o aplicativo deve oferecer, enquanto os requisitos não funcionais determinam critérios de desempenho, segurança e usabilidade. A definição clara desses requisitos é essencial para garantir o sucesso do projeto e a satisfação dos usuários.
+
+
+\section{Escopo de Utilização}
+\label{sec:escopo}
+
+O Parkon foi desenvolvido para facilitar a reserva de vagas de estacionamento em ambientes urbanos. O sistema pode ser utilizado em diferentes cenários, como estacionamentos comerciais, residenciais, públicos ou privados. Os usuários podem ser qualquer pessoa que necessite estacionar seu veículo, abrangendo desde motoristas ocasionais até gestores de estacionamentos.
+
+
+\section{Análise de Requisitos}
+\label{sec:analise-requisitos}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Requisitos Funcionais}
+\label{tab:requisitos-funcionais}
+\begin{tabular}{|c|p{11cm}|}
+\hline
+\textbf{RF01} & Cadastro de Usuário: Permitir que novos usuários se cadastrem na plataforma, informando dados pessoais e de contato \\
+\hline
+\textbf{RF02} & Login e Autenticação: Permitir que usuários façam login de forma segura. \\
+\hline
+\textbf{RF03} & Localização de Vagas: Exibir em tempo real as vagas de estacionamento disponíveis próximas ao usuário, utilizando geolocalização. \\
+\hline
+\textbf{RF04} & Reserva de Vaga: Permitir que o usuário selecione e reserve uma vaga antecipadamente. \\
+\hline
+\textbf{RF05} & Avaliação de Vaga/Serviço: Permitir que o usuário avalie a vaga e o serviço após a utilização. \\
+\hline
+\textbf{RF06} & Geração de Rotas: Fornecer ao usuário a rota até o estacionamento selecionado. \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Requisitos Não-Funcionais}
+\label{tab:requisitos-nao-funcionais}
+\begin{tabular}{|c|p{11cm}|}
+\hline
+\textbf{RNF01} & Usabilidade: A interface do aplicativo deve ser intuitiva e acessível para usuários de diferentes perfis. \\
+\hline
+\textbf{RNF02} & Segurança: Os dados dos usuários e transações financeiras devem ser protegidos por mecanismos de autenticação e criptografia. \\
+\hline
+\textbf{RNF03} & Disponibilidade: O sistema deve estar disponível para acesso 24 horas por dia, 7 dias por semana. \\
+\hline
+\textbf{RNF04} & Desempenho: As informações sobre vagas disponíveis devem ser atualizadas em tempo real, com tempo de resposta inferior a 2 segundos. \\
+\hline
+\textbf{RNF05} & Compatibilidade: O aplicativo deve ser compatível com os principais sistemas operacionais móveis (Android e iOS). \\
+\hline
+\textbf{RNF06} & Escalabilidade: O sistema deve suportar o aumento do número de usuários e estacionamentos cadastrados sem perda de desempenho. \\
+\hline
+\textbf{RNF07} & Interoperabilidade: O sistema deve permitir integração com \acrshortpl{api} de terceiros, como sistemas de pagamento e mapas. \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Caso de Uso}
+\label{sec:caso-de-uso}
+
+\subsection{Diagramas de Casos de Uso}
+\label{sec:diagramas-casos-uso}
+
+Nesta seção, detalhamos os principais eventos que podem ocorrer dentro do aplicativo Parkon. Para cada ação realizada pelo usuário, um conjunto de processos é desencadeado, afetando tanto o usuário que faz a reserva quanto o estacionamento que oferece a vaga. O diagrama da \autoref{fig:caso-uso-usuario} representa os casos de uso do usuário do sistema.
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[width=0.6\linewidth]{capitulos/figuras/caso-uso-usuario.png}
+   \caption{Diagrama de Caso de Uso do Usuário.}
+   \label{fig:caso-uso-usuario}
+\end{figure}
+
+
+\subsection{Descrição de Casos de Uso}
+\label{sec:descricao-casos-uso}
+
+A seguir, descrevemos os principais casos de uso do nosso aplicativo móvel. Vale ressaltar que alguns casos de uso da aplicação não foram citados pois não são tão relevantes para esse trabalho, como por exemplo os casos de uso do Server-Side.
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Caso de uso cadastrar-se}
+\label{tab:caso-uso-cadastrar}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Nome} & Cadastrar-se \\
+\hline
+\textbf{Objetivos} & Realizar cadastro de usuário na plataforma \\
+\hline
+\textbf{Atores} & Usuário motorista \\
+\hline
+\textbf{Pré-Condições} & Não existir cadastro anterior para o mesmo número de documento. \\
+\hline
+\textbf{Evento Chave (Trigger)} & Abertura do aplicativo pela primeira vez. \\
+\hline
+\textbf{Fluxo Principal} & 1. Usuário abre o aplicativo. 2. Usuário preenche formulário de cadastro. 3. Usuário clica no botão de cadastrar 4. Usuário é redirecionado para tela de Diálogos. \\
+\hline
+\textbf{Fluxo Alternativo} & 1. Usuário já está cadastrado. 2. Mensagem para cadastrar com outro número é exibida. \\
+\hline
+\textbf{Pós-Condições} & Usuário cadastrado no sistema. \\
+\hline
+\textbf{Regras de Negócios} & Só pode existir um cadastro por número de documento. \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Caso de uso Login}
+\label{tab:caso-uso-login}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Nome} & Login \\
+\hline
+\textbf{Objetivos} & Realizar login na plataforma \\
+\hline
+\textbf{Atores} & Usuário motorista \\
+\hline
+\textbf{Pré-Condições} & Ter realizado cadastrado na plataforma anteriormente. \\
+\hline
+\textbf{Evento Chave (Trigger)} & \\
+\hline
+\textbf{Fluxo Principal} & 1. Usuário abre o aplicativo. 2. Usuário preenche informações de login. 3. Usuário é redirecionado para tela inícial \\
+\hline
+\textbf{Fluxo Alternativo} & 1. Usuário não cadastrado. 2. Mensagem para cadastrar é exibida. \\
+\hline
+\textbf{Pós-Condições} & Usuário autenticado no sistema. \\
+\hline
+\textbf{Regras de Negócios} & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Caso de uso localizar vaga}
+\label{tab:caso-uso-localizar-vaga}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Nome} & Localizar Vaga \\
+\hline
+\textbf{Objetivos} & Encontrar estacionamentos na região informada \\
+\hline
+\textbf{Atores} & Usuário motorista \\
+\hline
+\textbf{Pré-Condições} & Ter realizado login na plataforma anteriormente. \\
+\hline
+\textbf{Evento Chave (Trigger)} & Pesquisa do endereço destino \\
+\hline
+\textbf{Fluxo Principal} & 1. Usuário informa endereço. 2. Usuário recebe lista de estacionamentos. \\
+\hline
+\textbf{Fluxo Alternativo} & 1. Endereço não encontrado. 2. Mensagem para informar que está incorreto é exibida. \\
+\hline
+\textbf{Pós-Condições} & \\
+\hline
+\textbf{Regras de Negócios} & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Caso de uso receber rota até a vaga}
+\label{tab:caso-uso-receber-rota}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Nome} & Receber rota até a vaga \\
+\hline
+\textbf{Objetivos} & Obter a rota até o estacionamento encontrado \\
+\hline
+\textbf{Atores} & Usuário motorista \\
+\hline
+\textbf{Pré-Condições} & Ter encontrado um estacionamento na busca \\
+\hline
+\textbf{Evento Chave (Trigger)} & \\
+\hline
+\textbf{Fluxo Principal} & 1. Usuário encontra estacionamento 2. Sistema abre o google maps no dispositivo do cliente com a rota definida. \\
+\hline
+\textbf{Fluxo Alternativo} & \\
+\hline
+\textbf{Pós-Condições} & Usuário com rota definida no google maps \\
+\hline
+\textbf{Regras de Negócios} & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Caso de uso avaliar vaga/serviço}
+\label{tab:caso-uso-avaliar}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Nome} & Avaliar vaga/serviço \\
+\hline
+\textbf{Objetivos} & Usuário avaliar a vaga \\
+\hline
+\textbf{Atores} & Usuário motorista \\
+\hline
+\textbf{Pré-Condições} & Ter realizado viagem até a vaga \\
+\hline
+\textbf{Evento Chave (Trigger)} & \\
+\hline
+\textbf{Fluxo Principal} & 1. Usuário finaliza rota. 2. Usuário realiza avaliação da vaga. \\
+\hline
+\textbf{Fluxo Alternativo} & \\
+\hline
+\textbf{Pós-Condições} & Nota do estacionamento é recalculada \\
+\hline
+\textbf{Regras de Negócios} & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!ht]
+\begin{center}
+\caption{Caso de uso adicionar comentários ao estacionamento}
+\label{tab:caso-uso-comentarios}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Nome} & Adicionar comentários ao estacionamento \\
+\hline
+\textbf{Objetivos} & Usuário adiciona comentários sobre o estacionamento \\
+\hline
+\textbf{Atores} & Usuário motorista \\
+\hline
+\textbf{Pré-Condições} & Estar logado na plataforma \\
+\hline
+\textbf{Evento Chave (Trigger)} & \\
+\hline
+\textbf{Fluxo Principal} & 1. Usuário envia comentário do estacionamento. \\
+\hline
+\textbf{Fluxo Alternativo} & \\
+\hline
+\textbf{Pós-Condições} & Lista de comentários é atualizada \\
+\hline
+\textbf{Regras de Negócios} & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Modelagem do Sistema}
+\label{sec:modelagem-sistema}
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[width=0.95\linewidth]{capitulos/figuras/modelo-classes.png}
+   \caption{Modelo de classes utilizado}
+   \label{fig:modelo-classes}
+\end{figure}
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[width=0.55\linewidth]{capitulos/figuras/arquitetura-integracao.png}
+   \caption{Arquitetura de integração da aplicação mobile}
+   \label{fig:arquitetura-integracao}
+\end{figure}

@@ -1,0 +1,252 @@
+% ---------------------------------------------------------------------
+% --- Elementos pre-textuais do TCC PARKON.
+% --- Conteudo extraido de TCC_PARKON_V3.pdf (fonte da verdade).
+% --- Estrutura baseada no template PPGC-UFF-Latex-Abnt (ABNT).
+% ---
+% --- NOTA DE ESTRUTURA:
+% ---   Este arquivo e construido de forma incremental:
+% ---     Tarefa 3.1 (este bloco): capa + folha de rosto + numeracao de paginas
+% ---     Tarefa 3.2: termo de aprovacao (sera anexado abaixo)
+% ---     Tarefa 3.3: dedicatoria, agradecimentos, resumo e abstract
+% ---     Tarefa 3.4: listas (figuras, tabelas, siglas) e sumario
+% --- Todo o arquivo deve permanecer em UTF-8.
+% ---------------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- Elementos usados na Capa e na Folha de Rosto.
+% --- Valores extraidos da capa e folha de rosto de TCC_PARKON_V3.pdf.
+% --- -----------------------------------------------------------------
+\autor{ANTÔNIO VINICIUS FREITAS FERREIRA} % deve ser escrito em maiusculo
+
+\titulo{Proposta de um Aplicativo para Reserva de Vagas de Estacionamento: Estudo de Caso do Parkon}
+
+\instituicao{UNIVERSIDADE FEDERAL FLUMINENSE}
+
+\orientador{Prof. Dr. Igor Machado Coelho}
+
+% NOTA: A fonte (TCC_PARKON_V3.pdf) nao apresenta coorientador.
+% Conforme requisito 3.2, a linha \coorientador foi omitida.
+
+\local{Niterói}
+
+\data{2025} % ano da defesa
+
+% Texto do comentario conforme requisito 3.3 (Curso de Sistemas de Informacao / UFF).
+% TODO: [MIGRATION] A area de concentracao nao foi localizada na capa/folha de rosto
+%       de TCC_PARKON_V3.pdf. Caso exista, acrescentar ao final do \comentario abaixo
+%       no formato: "Área de concentração: <AREA>."
+\comentario{Trabalho de Conclusão de Curso apresentado ao Curso de Sistemas de Informação da Universidade Federal Fluminense como requisito parcial para a obtenção do Grau de Bacharel em Sistemas de Informação.}
+
+
+% --- -----------------------------------------------------------------
+% --- Capa. (Capa externa) (Obrigatorio)
+% --- -----------------------------------------------------------------
+\capa
+
+% --- -----------------------------------------------------------------
+% --- Folha de rosto. (Obrigatorio)
+% --- -----------------------------------------------------------------
+\folhaderosto
+
+% --- -----------------------------------------------------------------
+% --- Ficha catalografica (Obrigatoria apenas na versao final de teses/
+% --- dissertacoes). A fonte TCC_PARKON_V3.pdf nao contem ficha
+% --- catalografica e o arquivo de imagem nao esta disponivel.
+% --- TODO: [MIGRATION] Inserir a ficha catalografica aqui caso seja exigida.
+% ---       Ex.: \includegraphics em uma figure apontando para
+% ---       capitulos/figuras/ficha_catalografica.png
+% --- -----------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- Numeracao das paginas pre-textuais em algarismos romanos.
+% --- -----------------------------------------------------------------
+\pagestyle{ruledheader}
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+% ---------------------------------------------------------------------
+% --- FIM DA TAREFA 3.1 (capa + folha de rosto + numeracao).
+% --- O conteudo das tarefas 3.2, 3.3 e 3.4 sera anexado a partir daqui.
+% ---------------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- TAREFA 3.2 - Termo de Aprovacao (Folha de Aprovacao). (Obrigatorio)
+% --- Conteudo extraido da pagina "Folha de Aprovacao" de TCC_PARKON_V3.pdf.
+% --- Banca examinadora (max. 5, incluindo o orientador):
+% ---   1) Prof. Dr. Igor Machado Coelho (Orientador) - UFF
+% ---   2) Prof. Dr. Raphael Guerra - UFF
+% ---   3) Prof. Dr. Joao Felipe Nicolaci Pimentel - UFF
+% --- Estrutura espelhada no template PPGC-UFF-Latex-Abnt (layout centrado
+% --- com separadores \rule). Arquivo em UTF-8.
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\thispagestyle{empty}
+
+\vspace{-60mm}
+
+\begin{center}
+   {\large ANTÔNIO VINICIUS FREITAS FERREIRA}\\
+   \vspace{7mm}
+
+   Proposta de um Aplicativo para Reserva de Vagas de Estacionamento: Estudo de Caso do Parkon\\
+  \vspace{10mm}
+\end{center}
+
+\noindent
+\begin{flushright}
+\begin{minipage}[t]{8cm}
+
+Trabalho de Conclusão de Curso apresentado ao Curso de Sistemas de Informação da Universidade Federal Fluminense como requisito parcial para a obtenção do Grau de Bacharel em Sistemas de Informação.
+
+\end{minipage}
+\end{flushright}
+\vspace{1.0 cm}
+\noindent
+Aprovada em dezembro de 2025. \\
+\begin{flushright}
+  {
+  \begin{center}
+  BANCA EXAMINADORA \\
+  \vspace{6mm}
+  \rule{11cm}{.1mm} \\
+    Prof. Dr. Igor Machado Coelho - Orientador, UFF \\
+    \vspace{6mm}
+  \rule{11cm}{.1mm} \\
+    Prof. Dr. Raphael Guerra, UFF \\
+    \vspace{6mm}
+  \rule{11cm}{.1mm} \\
+    Prof. Dr. João Felipe Nicolaci Pimentel, UFF \\
+  \vspace{6mm}
+  \end{center}
+  }
+\end{flushright}
+\begin{center}
+  \vspace{4mm}
+  Niterói \\
+  2025
+
+\end{center}
+
+% ---------------------------------------------------------------------
+% --- FIM DA TAREFA 3.2 (termo de aprovacao).
+% --- O conteudo das tarefas 3.3 e 3.4 sera anexado a partir daqui.
+% ---------------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- TAREFA 3.3 - Dedicatoria, Agradecimentos, Resumo e Abstract.
+% --- Conteudo extraido de TCC_PARKON_V3.pdf (fonte da verdade).
+% ---   Pagina 4 -> RESUMO (com Palavras-chave)
+% ---   Pagina 5 -> ABSTRACT (com Keywords)
+% --- A sequencia de paginas do PDF e: capa -> folha de rosto ->
+% --- folha de aprovacao -> RESUMO -> ABSTRACT -> listas.
+% --- Arquivo em UTF-8.
+% --- -----------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- Dedicatoria. (Opcional - Requisito 3.7, condicional a presenca)
+% --- NOTA: [MIGRATION] A fonte TCC_PARKON_V3.pdf NAO contem pagina de
+% ---       dedicatoria. Conforme o Requisito 3.7 (condicional a
+% ---       presenca da secao no documento de origem), a dedicatoria foi
+% ---       OMITIDA. Caso o autor deseje inserir uma dedicatoria, use o
+% ---       bloco abaixo (atualmente comentado), que produz um texto em
+% ---       italico alinhado a direita em pagina dedicada:
+% ---
+% --- \cleardoublepage
+% --- \thispagestyle{empty}
+% --- \vspace*{200mm}
+% --- \begin{flushright}
+% --- {\em <texto da dedicatoria> }
+% --- \end{flushright}
+% --- \newpage
+% --- -----------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- Agradecimentos. (Opcional - Requisito 3.8, condicional a presenca)
+% --- NOTA: [MIGRATION] A fonte TCC_PARKON_V3.pdf NAO contem secao de
+% ---       agradecimentos. Conforme o Requisito 3.8 (condicional a
+% ---       presenca da secao no documento de origem), os agradecimentos
+% ---       foram OMITIDOS. Caso o autor deseje inseri-los, use o bloco
+% ---       abaixo (atualmente comentado):
+% ---
+% --- \pretextualchapter{Agradecimentos}
+% --- \hspace{5mm}
+% --- <texto dos agradecimentos>
+% --- -----------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- Resumo em portugues. (Obrigatorio - Requisito 3.5)
+% --- Texto extraido VERBATIM da pagina 4 (RESUMO) de TCC_PARKON_V3.pdf.
+% --- Seguido da entrada Palavras-chave em lista rotulada em negrito.
+% --- -----------------------------------------------------------------
+\begin{resumo}
+
+Este trabalho apresenta o desenvolvimento e a análise do aplicativo móvel Parkon, cujo objetivo é otimizar a busca, reserva e avaliação de vagas de estacionamento em áreas urbanas. O Parkon permite aos usuários localizar vagas disponíveis em tempo real, realizar reservas antecipadas e obter rotas para o estacionamento selecionado. Além disso, oferece um sistema de avaliação da qualidade do serviço e da vaga utilizada, contribuindo para uma experiência mais satisfatória e colaborativa. O desenvolvimento do Parkon foi motivado pela crescente demanda por soluções tecnológicas que reduzam o tempo gasto e aumentem a conveniência no processo de estacionamento, especialmente em grandes centros urbanos. Este estudo descreve as principais funcionalidades do aplicativo, os desafios enfrentados durante sua concepção e as perspectivas para implementação prática.
+
+{\hspace{-8mm} \bf{Palavras-chave}}: Aplicativo móvel, Estacionamento e Reserva de vagas.
+
+\end{resumo}
+
+% --- -----------------------------------------------------------------
+% --- Resumo em lingua estrangeira (Abstract). (Obrigatorio - Requisito 3.6)
+% --- Texto extraido VERBATIM da pagina 5 (ABSTRACT) de TCC_PARKON_V3.pdf.
+% --- Seguido da entrada Keywords em lista rotulada em negrito.
+% --- -----------------------------------------------------------------
+\begin{abstract}
+
+This work presents the development and analysis of the mobile application Parkon, which aims to optimize the search, reservation, and evaluation of parking spaces in urban areas. Parkon allows users to locate available spaces in real time, make advance reservations, and obtain routes to the selected parking lot. Additionally, it offers a system for evaluating the quality of service and the parking space used, contributing to a more satisfying and collaborative experience. The development of Parkon was motivated by the growing demand for technological solutions that reduce time spent and increase convenience in the parking process, especially in large urban centers. This study describes the main features of the application, the challenges faced during its conception, and the prospects for practical implementation.
+
+{\hspace{-8mm} \bf{Keywords}}: Mobile application, Parking, Space reservation.
+
+\end{abstract}
+
+% ---------------------------------------------------------------------
+% --- FIM DA TAREFA 3.3 (dedicatoria, agradecimentos, resumo e abstract).
+% --- O conteudo da tarefa 3.4 (listas e sumario) sera anexado a partir daqui.
+% ---------------------------------------------------------------------
+% --- -----------------------------------------------------------------
+% --- TAREFA 3.4 - Listas (figuras, tabelas, siglas) e Sumario.
+% --- Estrutura espelhada EXATAMENTE no template PPGC-UFF-Latex-Abnt
+% --- (pre-textuais/cap0.tex), respeitando a ordem ABNT e o uso de
+% --- \cleardoublepage entre os elementos:
+% ---   1) Lista de figuras  (\listoffigures)
+% ---   2) Lista de tabelas  (\listoftables)
+% ---   3) Lista de abreviaturas e siglas (\printglossary)
+% ---   4) Sumario           (\tableofcontents)
+% --- Arquivo em UTF-8.
+% --- -----------------------------------------------------------------
+
+% --- -----------------------------------------------------------------
+% --- Lista de figuras. (Opcional - Requisito 9.3)
+% --- -----------------------------------------------------------------
+%\cleardoublepage
+\listoffigures
+
+% --- -----------------------------------------------------------------
+% --- Lista de tabelas. (Opcional - Requisito 9.3)
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+% --- -----------------------------------------------------------------
+% --- Lista de abreviaturas e siglas. (Opcional - Requisito 7.3)
+% --- Elemento que consiste na relacao alfabetica das abreviaturas e
+% --- siglas utilizadas no texto, seguidas das expressoes correspondentes
+% --- grafadas por extenso (ABNT). Gerada a partir dos acronimos definidos
+% --- em pre-textuais/acronimos.tex via pacote glossaries.
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\printglossary[type=\acronymtype,title={Lista de Abreviaturas e Siglas}]
+\cleardoublepage
+
+% --- -----------------------------------------------------------------
+% --- Sumario. (Obrigatorio - Requisito 9.3)
+% --- -----------------------------------------------------------------
+\pagestyle{ruledheader}
+\tableofcontents
+\pagebreak
+
+% ---------------------------------------------------------------------
+% --- FIM DA TAREFA 3.4 (listas de figuras, tabelas, siglas e sumario).
+% --- Este arquivo pre-textual (cap0.tex) esta COMPLETO.
+% ---------------------------------------------------------------------

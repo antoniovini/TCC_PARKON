@@ -1,0 +1,270 @@
+% ---------------------------------------------------------------------
+% --- CAPÍTULO 4 - PROJETO E PROTÓTIPO
+% ---
+% --- Conteúdo extraído VERBATIM de TCC_PARKON_V3.pdf (páginas 20 a 30),
+% --- fonte da verdade. Fragmento LaTeX (sem \documentclass/preâmbulo),
+% --- incluído via \include em tese.tex. Arquivo em UTF-8.
+% ---
+% --- Título de origem (corpo do PDF): "4 PROJETO E PROTÓTIPO".
+% ---   A classe PPGC_UFF formata o título do capítulo em maiúsculas; por isso
+% ---   usa-se \chapter{Projeto e Protótipo} (mesma saída visível), mantendo a
+% ---   coerência com os capítulos anteriores (Requisitos 1.2 e 1.6).
+% ---   O label é \label{cap:resultados} (referenciado por \autoref{cap:resultados}
+% ---   no cap1.tex) conforme definido na tarefa 4.4.
+% ---
+% --- ESTRUTURA DE SEÇÕES (hierarquia do PDF):
+% ---   4   PROJETO E PROTÓTIPO        -> \chapter      (cap:resultados)
+% ---   4.1 Criação do protótipo       -> \section      (sec:criacao-prototipo)
+% ---   4.2 Criação do projeto         -> \section      (sec:criacao-projeto)
+% ---   4.3 Telas do Aplicativo        -> \section      (sec:telas-aplicativo)
+% ---   4.4 Build do Aplicativo        -> \section      (sec:build-aplicativo)
+% ---
+% --- MAPEAMENTO DE CITAÇÕES (fonte usa numeração [n]; convertidas para \cite):
+% ---   [7] -> \cite{guarnieri2025}  GUARNIERI, P. L. Estudo de caso comparando o
+% ---          MongoDB e o PostgreSQL... (seção 4.2)
+% ---   [5] -> \cite{gradin2025}     GRADIN, F. A.; LAZZARETTI, A. T. Um estudo sobre
+% ---          o desenvolvimento mobile utilizando Flutter (seção 4.4)
+% ---   TODO: [CITATION] As referências da fonte NÃO trazem ano de publicação
+% ---         explícito (apenas "Acesso em 08 de dez. 2025"). Os anos acima são
+% ---         PROVISÓRIOS (acesso 2025) e devem ser confirmados/reconciliados nas
+% ---         tarefas 7.1 e 7.2.
+% ---
+% --- FIGURAS (Figura 4 a 22): inseridos AMBIENTES PLACEHOLDER com \fbox e \label
+% ---   para que os \autoref resolvam; as imagens reais serão extraídas/inseridas
+% ---   na tarefa 5.1. Não há tabelas neste capítulo.
+% ---
+% --- REFERÊNCIAS CRUZADAS: todas as menções "Figura N" no corpo foram convertidas
+% ---   para \autoref{fig:...} (Requisito 9.1). Como o template usa
+% ---   \counterwithout{figure}{chapter}, a numeração é sequencial no documento;
+% ---   o cap3.tex contém as Figuras 1-3, de modo que este capítulo produz
+% ---   naturalmente "Figura 4" a "Figura 22", coincidindo com a numeração da fonte.
+% ---
+% --- ACRÔNIMOS (definidos em pre-textuais/acronimos.tex):
+% ---   cli -> ocorre em 4.4 (primeira e única ocorrência da sigla no corpo do
+% ---          documento). Na reconciliação de primeiro uso (tarefa 10.1) passou a
+% ---          usar \acrfull{cli} (Requisitos 7.2 e 7.5), que renderiza
+% ---          "Command Line Interface (CLI)"; removeu-se o parêntese literal
+% ---          "(Command Line Interface)" para evitar duplicar a forma por extenso.
+% ---   apk -> aparece apenas dentro de um bloco de código/comando verbatim
+% ---          ("# Build para Android (APK)"); mantido literal (não convertido),
+% ---          por ser conteúdo de linha de comando reproduzido VERBATIM.
+% ---
+% --- CÓDIGOS/COMANDOS: os blocos de comandos de build (Flutter/Go/Docker) são
+% ---   reproduzidos VERBATIM via ambiente \begin{verbatim} (Requisito 1.1).
+% ---------------------------------------------------------------------
+
+\chapter{Projeto e Protótipo}
+\label{cap:resultados}
+
+\section{Criação do protótipo}
+\label{sec:criacao-prototipo}
+
+O protótipo do aplicativo Parkon foi desenvolvido com o objetivo de validar as principais funcionalidades propostas para a reserva de vagas de estacionamento em ambientes urbanos. Utilizando ferramentas de prototipagem, foram criadas telas que simulam a experiência do usuário, permitindo a visualização do fluxo de navegação, das opções de busca e reserva de vagas, bem como dos mecanismos de avaliação e pagamento. O protótipo serve como base para testes iniciais de usabilidade e para o refinamento dos requisitos do sistema, antes da implementação definitiva.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/tela-autenticacao.png}
+      \caption{Tela de Autenticação}
+      \label{fig:tela-autenticacao}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/tela-inicial.png}
+      \caption{Tela Inicial do aplicativo}
+      \label{fig:tela-inicial}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:tela-autenticacao} apresenta a tela de autenticação do aplicativo Parkon, onde o usuário pode realizar login ou cadastro, inclusive utilizando contas do Google ou Apple, em uma interface simples e moderna. Já a \autoref{fig:tela-inicial} mostra a tela inicial, composta por um mapa interativo e um campo de pesquisa ``Onde parar?'', permitindo ao usuário localizar estacionamentos próximos de forma prática e eficiente.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/tela-pesquisa-vagas.png}
+      \caption{Tela de Pesquisa de Vagas}
+      \label{fig:tela-pesquisa-vagas}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/tela-selecao-estacionamento.png}
+      \caption{Tela de Seleção de Estacionamento}
+      \label{fig:tela-selecao-estacionamento}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:tela-pesquisa-vagas} apresenta a tela de pesquisa de vagas do aplicativo Parkon, onde o usuário pode inserir o destino desejado e visualizar uma lista de estacionamentos disponíveis na região, facilitando a escolha do local para estacionar. Já a \autoref{fig:tela-selecao-estacionamento} mostra a tela de seleção de estacionamento, exibindo detalhes como endereço, preço, avaliações e previsão de chegada, além de permitir ao usuário navegar até o estacionamento escolhido.
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[height=0.42\textheight,keepaspectratio]{capitulos/figuras/tela-configuracoes.png}
+   \caption{Tela de Configurações}
+   \label{fig:tela-configuracoes}
+\end{figure}
+
+\section{Criação do projeto}
+\label{sec:criacao-projeto}
+
+O desenvolvimento do projeto do aplicativo Parkon foi realizado utilizando o framework Flutter, escolhido por sua capacidade de criar aplicações móveis multiplataforma com uma única base de código, facilitando a manutenção e a escalabilidade do sistema. Durante a implementação, um dos principais desafios enfrentados foi a integração do serviço de geolocalização do Google, essencial para identificar a localização do usuário e das vagas disponíveis em tempo real. Para garantir o desempenho e a disponibilidade das informações, foi adotado um mecanismo de cache utilizando o banco de dados MongoDB~\cite{guarnieri2025}, permitindo o armazenamento temporário dos dados de localização e otimizando o acesso mesmo em situações de instabilidade de conexão. Essa abordagem proporcionou maior eficiência ao aplicativo, reduzindo o tempo de resposta e melhorando a experiência do usuário.
+
+\section{Telas do Aplicativo}
+\label{sec:telas-aplicativo}
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-login.png}
+      \caption{Aplicação rodando no emulador - Login}
+      \label{fig:emulador-login}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-cadastro.png}
+      \caption{Aplicação rodando no emulador - Cadastro}
+      \label{fig:emulador-cadastro}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:emulador-login} mostra a tela de login do aplicativo Parkon em funcionamento no emulador, destacando o campo para inserção de e-mail e opções de autenticação, incluindo Google e Apple, em um layout moderno e funcional. A \autoref{fig:emulador-cadastro} apresenta a tela de cadastro, onde o usuário informa nome e senha para criar sua conta.
+
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-confirmacao-email.png}
+   \caption{Aplicação rodando no emulador - Confirmação de e-mail}
+   \label{fig:emulador-confirmacao-email}
+
+   \vspace{0.6cm}
+
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/emulador-email-codigo.png}
+   \caption{Aplicação rodando no emulador – E-mail com o código}
+   \label{fig:emulador-email-codigo}
+\end{figure}
+
+A \autoref{fig:emulador-confirmacao-email} apresenta a tela de confirmação de e-mail do aplicativo Parkon, onde o usuário deve inserir o código recebido para validar o cadastro. Já a \autoref{fig:emulador-email-codigo} mostra o e-mail enviado ao usuário com o código de verificação necessário para concluir o processo de registro.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-sucesso-cadastro.png}
+      \caption{Aplicação rodando no emulador - Sucesso no cadastro}
+      \label{fig:emulador-sucesso-cadastro}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-tela-inicial.png}
+      \caption{Aplicação rodando no emulador – Tela ínicial}
+      \label{fig:emulador-tela-inicial}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:emulador-sucesso-cadastro} mostra a tela de confirmação de sucesso no cadastro do usuário, indicando que o processo foi concluído corretamente no aplicativo Parkon. Já a \autoref{fig:emulador-tela-inicial} apresenta a tela inicial do aplicativo após o login, exibindo o mapa da região e o campo de pesquisa para localização de vagas.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-configuracoes.png}
+      \caption{Aplicação rodando no emulador - Configurações}
+      \label{fig:emulador-configuracoes}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-perfil.png}
+      \caption{Aplicação rodando no emulador – Perfil do usuário}
+      \label{fig:emulador-perfil}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:emulador-configuracoes} apresenta a tela de configurações do aplicativo Parkon, onde o usuário pode acessar opções como perfil, privacidade, histórico de buscas, pagamentos e ajustes gerais. A \autoref{fig:emulador-perfil} mostra a tela de perfil do usuário, exibindo dados pessoais e a opção de encerrar a conta.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-pesquisa.png}
+      \caption{Aplicação rodando no emulador - Pesquisa de estacionamento}
+      \label{fig:emulador-pesquisa}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-lista.png}
+      \caption{Aplicação rodando no emulador - Lista de estacionamentos}
+      \label{fig:emulador-lista}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:emulador-pesquisa} apresenta a tela de pesquisa de estacionamento do aplicativo Parkon, onde o usuário pode digitar o endereço desejado para localizar vagas disponíveis na região. A \autoref{fig:emulador-lista} mostra a lista de estacionamentos encontrados, exibindo opções próximas ao destino informado pelo usuário.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-detalhes.png}
+      \caption{Aplicação rodando no emulador - Detalhes do estacionamento}
+      \label{fig:emulador-detalhes}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-comentarios.png}
+      \caption{Aplicação rodando no emulador - Comentários}
+      \label{fig:emulador-comentarios}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:emulador-detalhes} mostra a tela de detalhes do estacionamento no aplicativo Parkon, exibindo informações como endereço, distância, avaliações e opções para ver comentários ou reportar problemas. A \autoref{fig:emulador-comentarios} apresenta a tela de comentários, onde o usuário pode visualizar e adicionar opiniões sobre o estacionamento selecionado.
+
+\begin{figure}[htbp]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-reportar.png}
+      \caption{Aplicação rodando no emulador – Reportar problemas}
+      \label{fig:emulador-reportar}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/emulador-navegacao.png}
+      \caption{Aplicação rodando no emulador - Tela de navegação do google maps}
+      \label{fig:emulador-navegacao}
+   \end{minipage}
+\end{figure}
+
+A \autoref{fig:emulador-reportar} apresenta a tela de reportar problemas do aplicativo Parkon, permitindo ao usuário informar à equipe sobre dificuldades encontradas na rota até o estacionamento. A \autoref{fig:emulador-navegacao} mostra a tela de navegação do Google Maps integrada ao aplicativo, exibindo o trajeto detalhado até o estacionamento selecionado.
+
+\section{Build do Aplicativo}
+\label{sec:build-aplicativo}
+
+O processo de build do aplicativo Parkon foi realizado utilizando o framework Flutter~\cite{gradin2025}, que permite a geração de pacotes para múltiplas plataformas, como Android e iOS, a partir de uma única base de código. Para isso, foram utilizados comandos \acrfull{cli} que automatizam a criação dos arquivos finais para distribuição. Exemplos de comandos utilizados:
+
+\begin{verbatim}
+# Build para Android (APK)
+flutter build apk --release
+
+# Build para Android (App Bundle)
+flutter build appbundle --release
+
+# Build para iOS (necessário macOS)
+flutter build ios --release
+\end{verbatim}
+
+Esses comandos geram os pacotes necessários para publicação nas lojas de aplicativos ou para testes em dispositivos físicos.
+
+O backend do sistema foi desenvolvido em Go, proporcionando alta performance e facilidade de escalabilidade. O processo de build do backend também foi realizado via linha de comando, conforme os exemplos abaixo:
+
+\begin{verbatim}
+# Compilar o backend
+go build -o parkon-backend main.go
+
+# Executar o backend localmente
+./parkon-backend
+
+# Para rodar em ambiente de produção com Docker:
+docker build -t parkon-backend .
+docker run -d -p 8080:8080 parkon-backend
+\end{verbatim}
+
+Esses comandos garantem que o backend esteja pronto para execução local ou implantação em ambientes cloud, facilitando a integração com o aplicativo mobile e assegurando escalabilidade e segurança ao sistema.

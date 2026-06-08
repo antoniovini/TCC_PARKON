@@ -1,0 +1,58 @@
+% ---------------------------------------------------------------------
+% --- CAPITULO 2 - REFERENCIAL TEORICO
+% --- Conteudo extraido VERBATIM de TCC_PARKON_V3.pdf (paginas 10-11),
+% --- fonte da verdade. Fragmento LaTeX (sem \documentclass/preambulo),
+% --- incluido via \include em tese.tex. Arquivo em UTF-8.
+% ---
+% --- Titulo de origem (corpo do PDF): "REFERENCIAL TEORICO".
+% ---   A classe PPGC_UFF formata o titulo do capitulo em maiusculas;
+% ---   por isso usa-se \chapter{Referencial Teórico} (mesma saida visivel),
+% ---   mantendo a coerencia com o cap1.tex (Requisitos 1.2 e 1.6).
+% ---
+% --- MAPEAMENTO DE CITACOES (fonte usa numeracao [n]; convertidas para \cite):
+% ---   [8]  -> \cite{roche2012}     ROCHE, S. et al. "Are 'Smart Cities' Smart Enough?" (URL: senseable MIT, 2012)
+% ---   [4]  -> \cite{antonio2025}   ANTONIO, C. C. Geomarketing e mobilidade urbana (lume.ufrgs)
+% ---   [11] -> \cite{estapar2025}   Estapar reserva (site/online)
+% ---   [12] -> \cite{parclick2025}  Parclick: Online parking reservation system (site/online)
+% ---   TODO: [CITATION] As referencias da fonte NAO trazem ano de publicacao
+% ---         explicito (apenas "Acesso em 08 de dez. 2025"). Os anos acima
+% ---         sao PROVISORIOS (acesso 2025; roche2012 inferido pela URL) e
+% ---         devem ser confirmados/reconciliados nas tarefas 7.1 e 7.2.
+% ---
+% --- ACRONIMOS usados neste capitulo (definidos em pre-textuais/acronimos.tex):
+% ---   api -> primeira ocorrencia no capitulo em 2.3 ("APIs"); usa \acrfullpl{api}
+% ---          (forma plural por extenso + sigla). Demais ocorrencias usariam \acrshort.
+% ---   NOTA: a reconciliacao da PRIMEIRA ocorrencia entre capitulos sera feita
+% ---         na tarefa 10.1 (cross-references).
+% ---------------------------------------------------------------------
+
+\chapter{Referencial Teórico}
+\label{cap:referencial}
+
+A mobilidade urbana é um dos grandes desafios das cidades modernas \cite{roche2012}, especialmente diante do crescimento acelerado da frota de veículos e da limitação de espaços públicos. O aumento do número de automóveis nas vias resulta em congestionamentos, maior tempo de deslocamento e impactos ambientais, como o aumento da emissão de poluentes. Nesse cenário, torna-se fundamental buscar alternativas que promovam deslocamentos mais eficientes e sustentáveis, integrando tecnologia à infraestrutura urbana para melhorar a qualidade de vida da população.
+
+
+\section{Mobilidade Urbana e Estacionamento}
+\label{sec:mobilidade-estacionamento}
+
+Dentro do contexto da mobilidade urbana, a gestão de vagas de estacionamento representa um dos principais gargalos enfrentados pelos motoristas em grandes centros. A dificuldade em encontrar vagas disponíveis gera perda de tempo, aumenta o fluxo de veículos circulando em busca de espaço e contribui para o agravamento dos congestionamentos. Além disso, esse cenário impacta negativamente a eficiência dos sistemas de transporte e a sustentabilidade das cidades. Soluções tecnológicas voltadas para o monitoramento e reserva de vagas, como aplicativos móveis, surgem como alternativas relevantes para minimizar esses impactos, tornando o processo de estacionamento mais prático, seguro e sustentável.
+
+
+\section{Aplicativos de Reserva de Vagas}
+\label{sec:aplicativos-reserva}
+
+Diversos aplicativos de reserva de vagas \cite{antonio2025} de estacionamento já estão disponíveis no mercado, como Estapar \cite{estapar2025}, Parclick \cite{parclick2025}, Vaga Inteligente e ParkMe. Esses aplicativos oferecem funcionalidades como geolocalização, reserva antecipada, pagamento digital e avaliações de usuários. No entanto, a maioria dessas soluções é voltada exclusivamente para estacionamentos pertencentes à própria companhia desenvolvedora do aplicativo, restringindo o acesso dos usuários apenas à rede de estabelecimentos parceiros ou próprios. Por exemplo, o Estapar permite localizar e reservar vagas apenas em estacionamentos da rede Estapar, enquanto o Vaga Inteligente foca em vagas de condomínios e empresas que aderem à plataforma. O Parclick e o ParkMe também operam com redes específicas, limitando a abrangência e a diversidade de opções para os motoristas. Essa abordagem nichada dificulta a expansão do serviço e reduz a flexibilidade para o usuário, que depende da disponibilidade de vagas apenas nos locais cadastrados pelas empresas.
+
+A proposta do Parkon diferencia-se ao adotar um modelo aberto e colaborativo, semelhante ao conceito do ``iFood'' para restaurantes. Ou seja, qualquer estacionamento pode se cadastrar e gerenciar suas próprias vagas na plataforma, tornando o serviço mais democrático e abrangente. Dessa forma, o Parkon permite que estacionamentos independentes ou de diferentes redes possam se auto-servir, ampliando significativamente as opções para os usuários e promovendo uma experiência mais flexível e inclusiva. Essa abordagem favorece a descentralização do serviço, estimula a concorrência e contribui para a melhoria da mobilidade urbana.
+
+
+\section{Tecnologias Necessárias}
+\label{sec:tecnologias}
+
+O desenvolvimento de aplicativos móveis envolve a integração de diferentes tecnologias e recursos que possibilitam a oferta de serviços eficientes, seguros e acessíveis aos usuários. De modo geral, esses aplicativos dependem de uma arquitetura flexível, capaz de se adaptar a diferentes dispositivos e sistemas operacionais, garantindo uma experiência consistente e intuitiva.
+
+Para que soluções como o Parkon funcionem adequadamente, é fundamental a utilização de tecnologias abertas e padrões amplamente adotados no mercado. Isso inclui, por exemplo, o uso de serviços de geolocalização para identificar a posição do usuário e das vagas disponíveis, integração com sistemas de pagamento digital, mecanismos de autenticação e segurança, além de interfaces que permitam a comunicação entre usuários, estacionamentos e a plataforma central do aplicativo.
+
+Outro ponto importante é a capacidade de atualização em tempo real das informações, permitindo que os usuários tenham acesso imediato à disponibilidade de vagas, avaliações e rotas. A adoção de \acrfullpl{api} abertas e a interoperabilidade entre diferentes sistemas são essenciais para garantir a escalabilidade e a flexibilidade do serviço, possibilitando que novos estacionamentos e funcionalidades sejam incorporados facilmente à plataforma.
+
+Dessa forma, o uso de tecnologias abertas e integradas não só facilita o desenvolvimento e a manutenção do aplicativo, como também amplia o potencial de crescimento e inovação, tornando a solução mais acessível e eficiente para todos os envolvidos.

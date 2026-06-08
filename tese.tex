@@ -1,0 +1,177 @@
+% ---------------------------------------------------------------------
+% --- Arquivo principal (Main_File) do TCC PARKON.
+% --- Os demais arquivos sao os dos capitulos e elementos pre/pos-textuais.
+% --- Estrutura baseada no template PPGC-UFF-Latex-Abnt (ABNT).
+% ---------------------------------------------------------------------
+
+% Configuracao da entrada (opcoes do documento):
+%   ruledheader % cabecalho com regua
+%   12pt        % tamanho da fonte
+%   openright   % capitulos comecam em pagina impar (insere pagina vazia se preciso)
+%   a4paper     % tamanho do papel
+%   oneside     % impressao apenas no anverso
+%   english     % idioma adicional para hifenizacao
+%   brazil      % idioma principal do documento (deve ser o ultimo)
+
+\documentclass[ruledheader, 12pt, openright, a4paper, oneside, english, brazil]{PPGC_UFF}
+
+
+%--- pacotes para hifenizacao e acentuacao em portugues
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+
+
+%--- pacote para figuras
+\usepackage{epsf, subfigure}
+\usepackage[dvips]{epsfig,graphicx}
+\usepackage{chngcntr} %configuracao dos padroes numericos das Figuras e Tabelas
+\counterwithout{figure}{chapter} %formata figura para padrao: Figura 1.
+\counterwithout{table}{chapter} %formata tabela para padrao: Tabela 1.
+
+
+%--- pacote de simbolos
+\usepackage{pifont,textcomp,latexsym}
+
+%--- simbolos matematicos
+\usepackage{amssymb,amstext,amsthm,icomma,amsmath}
+
+%--- pacote para gerar pseudo-codigo
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\floatname{algorithm}{Algoritmo}
+
+%--- outros pacotes
+\usepackage{url}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{quoting}
+
+%Tabela Colorida
+\usepackage{bigdelim,booktabs, colortbl, longtable, multirow, multicol,rotating }
+
+
+%%===============================================================================
+%% INICIO do Pacotes - Lista de abreviaturas, siglas e acronimos
+%%===============================================================================
+%
+% nonumberlist, %do not show page numbers
+% acronym,      %generate acronym listing
+% nopostdot,    %sem ponto final apos a descricao
+% shortcuts,    %habilita atalhos (\acrshort, \acrfull, etc.)
+\usepackage[acronym,nopostdot,shortcuts, nonumberlist]{glossaries}
+
+
+\makeglossaries
+\input{pre-textuais/acronimos} %definicoes de siglas/acronimos (criado na tarefa 8.1)
+
+%%===============================================================================
+%% FIM do Pacotes Lista de abreviaturas, siglas e acronimos
+%%===============================================================================
+
+%%===============================================================================
+%% Configuracao das citacoes e personalizacao
+%%===============================================================================
+
+% Os pacotes abaixo so podem ser usados juntamente com o pacote ABNT abaixo e na ordem atual.
+% Esse conjunto de pacotes permite que as citacoes fiquem na cor azul e sejam usadas como link para as referencias.
+\usepackage[bookmarksopen=true,
+            linktoc=page,
+            colorlinks=true,  %ativa a cor do link na referencia
+            linkcolor=blue, %muda a cor do link na referencia \ref{} numeros de tabelas, figuras, secoes, sumario etc.
+            citecolor=blue, % muda a cor das citacoes \cite \textcite
+            filecolor=magenta,
+            urlcolor=blue, %muda a cor da url \url no texto e ref. bibliografica
+            ]{hyperref}
+
+
+\usepackage[ %mais informacoes de personalizacao das referencias olhar nos arquivos PDF na pasta MANUAIS
+    style = abnt, % Sistema alfabetico
+    %style = abnt-numeric, % Sistema numerico
+    %style = abnt-ibid, % Notas de referencia
+    language=brazil,
+    backend=biber,
+]{biblatex}
+
+\addbibresource{bibliografia.bib} % A biblioteca de referencias utilizada no trabalho (criada na tarefa 7.1).
+
+%%===============================================================================
+%% FIM da configuracao das citacoes e personalizacao
+%%===============================================================================
+
+\hyphenation{
+a-de-qua-da-men-te
+di-men-sio-na-men-to
+}
+
+%--------- usando tipo de fonte padrao
+% mathptmx (titulos sem negrito) ou ptm (titulos negrito) - Times - Padrao
+% ugq (titulos negrito) - Arial
+%% -- Padrao do template e: ptm -- %%
+\renewcommand{\ABNTchapterfont}{\bfseries\fontfamily{ptm}\fontseries{b}\selectfont}
+\renewcommand{\ABNTsectionfont}{\bfseries\fontfamily{ptm}}
+
+
+% --- -----------------------------------------------------------------
+% --- Documento Principal.
+% --- -----------------------------------------------------------------
+
+\begin{document}
+
+
+% --- -----------------------------------------------------------------
+% --- Titulo, abstract, dedicatorias e agradecimentos.
+% --- Indice geral, lista de figuras e tabelas.
+% --- (arquivo na pasta pre-textuais, criado na tarefa 3.x)
+% --- -----------------------------------------------------------------
+\include{pre-textuais/cap0}
+
+
+% --- -----------------------------------------------------------------
+% --- Insercao dos capitulos.
+% --- Todos os arquivos estao na pasta capitulos.
+% --- (capitulos criados nas tarefas 4.1 a 4.5)
+% --- -----------------------------------------------------------------
+
+\setcounter{page}{1} %parametros da contagem de paginas.
+\pagenumbering{arabic} %padrao de numeros de paginas em arabico (1,2,3)
+
+\pagestyle{ruledheader}
+\include{capitulos/cap1}
+\include{capitulos/cap2}
+\include{capitulos/cap3}
+\include{capitulos/cap4}
+\include{capitulos/cap5}
+
+
+% --- -----------------------------------------------------------------
+% --- Referencias Bibliograficas. (Obrigatorio)
+% --- A base de referencias e bibliografia.bib (criada na tarefa 7.1).
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\printbibliography[
+    title={REFERÊNCIAS} %TITULO DA SECAO
+]
+
+
+% --- -----------------------------------------------------------------
+% --- Apendices e Anexos. (Opcional)
+% --- A ordem ABNT e: todos os apendices antes de todos os anexos.
+% ---
+% --- O documento-fonte (TCC_PARKON_V3.pdf) NAO possui apendices nem
+% --- anexos: o SUMARIO lista apenas os capitulos 1 a 5 e as REFERENCIAS,
+% --- e nao ha secoes APENDICE/ANEXO apos as referencias. Portanto, por
+% --- forca do requisito 10.4, o comando \appendix e os \include ficam
+% --- omitidos (mantidos comentados) e a pasta pos-textuais permanece vazia.
+% ---
+% --- Caso futuramente sejam adicionados apendices/anexos, criar os arquivos
+% --- em pos-textuais/ e descomentar as linhas abaixo (apendices antes dos
+% --- anexos).
+% --- -----------------------------------------------------------------
+%\cleardoublepage
+%\appendix
+%\include{pos-textuais/appendixA}
+%\include{pos-textuais/anexoA}
+
+\end{document}
