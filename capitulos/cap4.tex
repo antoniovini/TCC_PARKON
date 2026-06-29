@@ -107,10 +107,25 @@ A \autoref{fig:tela-pesquisa-vagas} apresenta a tela de pesquisa de vagas do apl
 \section{Criação do projeto}
 \label{sec:criacao-projeto}
 
+\subsection{Aplicativo Mobile (Flutter)}
+\label{sec:criacao-projeto-mobile}
+
 O desenvolvimento do projeto do aplicativo Parkon foi realizado utilizando o framework Flutter, escolhido por sua capacidade de criar aplicações móveis multiplataforma com uma única base de código, facilitando a manutenção e a escalabilidade do sistema. Durante a implementação, um dos principais desafios enfrentados foi a integração do serviço de geolocalização do Google, essencial para identificar a localização do usuário e das vagas disponíveis em tempo real. Para garantir o desempenho e a disponibilidade das informações, foi adotado um mecanismo de cache utilizando o banco de dados MongoDB~\cite{guarnieri2025}, permitindo o armazenamento temporário dos dados de localização e otimizando o acesso mesmo em situações de instabilidade de conexão. Essa abordagem proporcionou maior eficiência ao aplicativo, reduzindo o tempo de resposta e melhorando a experiência do usuário.
+
+\subsection{Portal Web Administrativo (Next.js)}
+\label{sec:criacao-projeto-web}
+
+O portal web administrativo foi desenvolvido utilizando React com o framework Next.js, permitindo que gestores de estacionamento realizem operações de cadastro, configuração e acompanhamento de reservas por meio de uma interface web responsiva.
+
+A escolha do Next.js se deu pela facilidade de integração com a \acrshort{api} REST já existente no backend em Go, além de oferecer renderização do lado do servidor, o que proporciona melhor desempenho no carregamento inicial das páginas. A interface foi construída com componentes reutilizáveis, seguindo padrões de design responsivo para garantir acessibilidade em diferentes dispositivos.
+
+O portal compartilha a mesma infraestrutura de backend e banco de dados (MongoDB) utilizada pelo aplicativo mobile, garantindo consistência dos dados entre ambas as plataformas. A autenticação é realizada por meio do mesmo serviço de autenticação, permitindo que as credenciais do administrador sejam utilizadas de forma unificada.
 
 \section{Telas do Aplicativo}
 \label{sec:telas-aplicativo}
+
+\subsection{Telas do Aplicativo Mobile}
+\label{sec:telas-mobile}
 
 \begin{figure}[H]
    \centering
@@ -235,10 +250,168 @@ A \autoref{fig:emulador-detalhes} mostra a tela de detalhes do estacionamento no
 
 A \autoref{fig:emulador-reportar} apresenta a tela de reportar problemas do aplicativo Parkon, permitindo ao usuário informar à equipe sobre dificuldades encontradas na rota até o estacionamento. A \autoref{fig:emulador-navegacao} mostra a tela de navegação do Google Maps integrada ao aplicativo, exibindo o trajeto detalhado até o estacionamento selecionado.
 
+\begin{figure}[H]
+   \centering
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/app-reservar.jpeg}
+      \caption{Aplicação rodando no emulador - Detalhes do estacionamento credenciado}
+      \label{fig:app-reservar}
+   \end{minipage}\hfill
+   \begin{minipage}[b]{0.48\linewidth}
+      \centering
+      \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/app-reservar-data.jpeg}
+      \caption{Aplicação rodando no emulador - Seleção de data e hora da reserva}
+      \label{fig:app-reservar-data}
+   \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[height=0.34\textheight,keepaspectratio]{capitulos/figuras/app-reservado.jpeg}
+   \caption{Aplicação rodando no emulador - Reserva solicitada aguardando confirmação}
+   \label{fig:app-reservado}
+\end{figure}
+
+A \autoref{fig:app-reservar} apresenta a tela de detalhes de um estacionamento credenciado na plataforma, exibindo a localização no mapa, endereço, distância, avaliação e os botões de ação ``Ver Comentários'', ``Reportar Problema'', ``Navegar'' e ``Reservar''. A \autoref{fig:app-reservar-data} mostra a tela de reserva, onde o usuário seleciona a data e hora de início e fim da reserva e confirma com o botão ``Solicitar Reserva''. A \autoref{fig:app-reservado} apresenta a confirmação da solicitação, com o banner informando que a reserva foi solicitada e aguarda confirmação do administrador do estacionamento.
+
+\subsection{Telas do Portal Web}
+\label{sec:telas-web}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-login.png}
+   \caption{Portal Web - Tela de Login}
+   \label{fig:portal-login}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-cadastro.png}
+   \caption{Portal Web - Tela de Cadastro}
+   \label{fig:portal-cadastro}
+\end{figure}
+
+A \autoref{fig:portal-login} apresenta a tela de login do portal web administrativo ParkOn, onde o administrador do estacionamento pode inserir e-mail e senha para acessar o painel de gestão. Já a \autoref{fig:portal-cadastro} mostra a tela de cadastro, onde o administrador informa nome completo, e-mail, telefone, CPF, senha e confirmação de senha para criar sua conta na plataforma.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-confirmacao-email.png}
+   \caption{Portal Web - E-mail com código de verificação}
+   \label{fig:portal-confirmacao-email}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-confirmacao.png}
+   \caption{Portal Web - Modal de confirmação de código}
+   \label{fig:portal-confirmacao}
+\end{figure}
+
+A \autoref{fig:portal-confirmacao-email} mostra o e-mail enviado ao administrador com o código de verificação necessário para concluir o cadastro na plataforma. A \autoref{fig:portal-confirmacao} apresenta o modal de confirmação exibido sobre a tela de cadastro, onde o administrador insere o código recebido por e-mail para validar sua conta.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-setup-1.png}
+   \caption{Portal Web - Configuração inicial (Bem Vindo)}
+   \label{fig:portal-setup-1}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-setup-2.png}
+   \caption{Portal Web - Configuração inicial (Dados da Empresa)}
+   \label{fig:portal-setup-2}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-setup-3.png}
+   \caption{Portal Web - Configuração inicial (Primeiro Estacionamento)}
+   \label{fig:portal-setup-3}
+\end{figure}
+
+Após a validação do cadastro, o administrador é direcionado para o assistente de configuração inicial. A \autoref{fig:portal-setup-1} apresenta a tela de boas-vindas com o botão ``Iniciar''. A \autoref{fig:portal-setup-2} mostra o formulário de cadastro da empresa, com campos para razão social, CNPJ e telefone comercial, além de uma declaração de responsabilidade sobre os dados informados. A \autoref{fig:portal-setup-3} apresenta o cadastro do primeiro estacionamento, onde o administrador informa o nome do estabelecimento e o endereço, com integração ao Google Maps para posicionamento no mapa.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-dashboard.png}
+   \caption{Portal Web - Dashboard}
+   \label{fig:portal-dashboard}
+\end{figure}
+
+A \autoref{fig:portal-dashboard} apresenta o painel principal do portal administrativo, exibindo métricas como total de estacionamentos, total de vagas, taxa de ocupação e reservas pendentes, além de um gráfico de reservas por hora. O menu lateral permite acesso rápido às demais funcionalidades do sistema.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-empresas.png}
+   \caption{Portal Web - Gerenciamento de Empresas}
+   \label{fig:portal-empresas}
+\end{figure}
+
+A \autoref{fig:portal-empresas} mostra a tela de gerenciamento de empresas, onde o administrador pode visualizar as empresas cadastradas com informações como nome, CNPJ, telefone, status de verificação e ações disponíveis, além de criar novas empresas.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-estacionamentos.png}
+   \caption{Portal Web - Lista de Estacionamentos}
+   \label{fig:portal-estacionamentos}
+\end{figure}
+
+A \autoref{fig:portal-estacionamentos} apresenta a lista de estacionamentos cadastrados, exibindo nome, endereço, vagas totais, vagas ocupadas e status de verificação, com a opção de criar novos estacionamentos.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-edicao-estacionamento.png}
+   \caption{Portal Web - Detalhes do Estacionamento (Informações)}
+   \label{fig:portal-edicao-estacionamento}
+\end{figure}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-edicao-estacionamento-horario.png}
+   \caption{Portal Web - Detalhes do Estacionamento (Horários de Funcionamento)}
+   \label{fig:portal-edicao-estacionamento-horario}
+\end{figure}
+
+A \autoref{fig:portal-edicao-estacionamento} mostra a tela de detalhes do estacionamento com informações gerais (nome, endereço, status) e a localização no mapa. A \autoref{fig:portal-edicao-estacionamento-horario} apresenta a configuração dos horários de funcionamento por dia da semana, com opção de marcar dias como fechado.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-edicao-estacionamento-vagas.png}
+   \caption{Portal Web - Gerenciamento de Vagas}
+   \label{fig:portal-edicao-estacionamento-vagas}
+\end{figure}
+
+A \autoref{fig:portal-edicao-estacionamento-vagas} apresenta a tela de gerenciamento de vagas do estacionamento, onde o administrador pode visualizar o identificador e o status de cada vaga, alterar sua disponibilidade e adicionar novas vagas.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-equipe.png}
+   \caption{Portal Web - Gerenciamento de Equipe}
+   \label{fig:portal-equipe}
+\end{figure}
+
+A \autoref{fig:portal-equipe} mostra a tela de gerenciamento de equipe, onde o administrador visualiza os membros com seus respectivos papéis e status, além de poder convidar novos colaboradores para auxiliar na gestão do estacionamento.
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.85\linewidth]{capitulos/figuras/portal-reservas.png}
+   \caption{Portal Web - Gerenciamento de Reservas}
+   \label{fig:portal-reservas}
+\end{figure}
+
+A \autoref{fig:portal-reservas} apresenta a tela de gerenciamento de reservas, exibindo informações como e-mail do usuário, estacionamento, vaga, período, status e ações disponíveis, permitindo ao administrador acompanhar e gerenciar as reservas realizadas pelos motoristas.
+
 \section{Build do Aplicativo}
 \label{sec:build-aplicativo}
 
-O processo de build do aplicativo Parkon foi realizado utilizando o framework Flutter~\cite{gradin2025}, que permite a geração de pacotes para múltiplas plataformas, como Android e iOS, a partir de uma única base de código. Para isso, foram utilizados comandos \acrfull{cli} que automatizam a criação dos arquivos finais para distribuição. Exemplos de comandos utilizados:
+O processo de build da plataforma Parkon envolve três componentes distintos: o aplicativo mobile (Flutter), o backend (Go) e o portal web administrativo (Next.js). Para cada um, foram utilizados comandos \acrfull{cli} que automatizam a criação dos artefatos para distribuição e execução.
+
+\subsection{Build do Aplicativo Mobile (Flutter)}
+\label{sec:build-mobile}
+
+O aplicativo mobile foi desenvolvido utilizando o framework Flutter~\cite{gradin2025}, que permite a geração de pacotes para múltiplas plataformas, como Android e iOS, a partir de uma única base de código. Exemplos de comandos utilizados:
 
 \begin{verbatim}
 # Build para Android (APK)
@@ -253,7 +426,10 @@ flutter build ios --release
 
 Esses comandos geram os pacotes necessários para publicação nas lojas de aplicativos ou para testes em dispositivos físicos.
 
-O backend do sistema foi desenvolvido em Go, proporcionando alta performance e facilidade de escalabilidade. O processo de build do backend também foi realizado via linha de comando, conforme os exemplos abaixo:
+\subsection{Build do Backend (Go)}
+\label{sec:build-backend}
+
+O backend do sistema foi desenvolvido em Go, proporcionando alta performance e facilidade de escalabilidade. O processo de build do backend é realizado via linha de comando:
 
 \begin{verbatim}
 # Compilar o backend
@@ -267,4 +443,23 @@ docker build -t parkon-backend .
 docker run -d -p 8080:8080 parkon-backend
 \end{verbatim}
 
-Esses comandos garantem que o backend esteja pronto para execução local ou implantação em ambientes cloud, facilitando a integração com o aplicativo mobile e assegurando escalabilidade e segurança ao sistema.
+Esses comandos garantem que o backend esteja pronto para execução local ou implantação em ambientes cloud, facilitando a integração com o aplicativo mobile e o portal web.
+
+\subsection{Build do Portal Web (Next.js)}
+\label{sec:build-portal-web}
+
+O processo de build do portal web é realizado via linha de comando:
+
+\begin{verbatim}
+# Instalar dependências
+npm install
+
+# Executar em ambiente de desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+
+# Iniciar em produção
+npm start
+\end{verbatim}
